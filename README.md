@@ -1,16 +1,27 @@
-public class Calculator {
+import java.util.Scanner;
+
+public class LoginPage {
+
     public static void main(String[] args) {
-        int num1 = 10;
-        int num2 = 5;
+        Scanner scanner = new Scanner(System.in);
+        String username, password;
 
-        int sum = num1 + num2;
-        int difference = num1 - num2;
-        int product = num1 * num2;
-        int quotient = num1 / num2;
+        System.out.print("Username: ");
+        username = scanner.nextLine();
 
-        System.out.println("Sum: " + sum);
-        System.out.println("Difference: " + difference);
-        System.out.println("Product: " + product);
-        System.out.println("Quotient: " + quotient);
+        System.out.print("Password: ");
+        password = scanner.nextLine();
+
+        if (authenticate(username, password)) {
+            System.out.println("Login successful!");
+        } else {
+            System.out.println("Login failed. Invalid username or password.");
+        }
+        scanner.close();
+    }
+
+    public static boolean authenticate(String username, String password) {
+        // Replace with database or other authentication mechanism in a real application
+        return username.equals("user") && password.equals("password");
     }
 }
